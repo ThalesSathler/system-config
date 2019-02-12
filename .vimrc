@@ -23,7 +23,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'tpope/vim-surround'
+Plug 'bling/vim-airline'
+Plug 'jiangmiao/auto-pairs'
+
 " Initialize plugin system
 call plug#end()
 
