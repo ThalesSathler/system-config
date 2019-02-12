@@ -22,8 +22,8 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'sheerun/vim-polyglot'
-Plug 'w0rp/ale', { 'do': 'pip install flake8 isort yapf' }
-Plug 'maralla/completor.vim', { 'do': 'pip install jedi' }
+Plug 'w0rp/ale', { 'do': 'sudo pip install flake8 isort yapf' }
+Plug 'maralla/completor.vim', { 'do': 'sudo pip install jedi' }
 Plug 'davidhalter/jedi-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
