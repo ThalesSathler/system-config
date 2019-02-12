@@ -31,12 +31,13 @@ Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 set background=dark
-set number " relativenumber
+set relativenumber " number
 set numberwidth=4
 set smartindent
 set shiftwidth=2
 set tabstop=2
 set ruler
+set cursorline
 syntax on
 
 let g:deoplete#enable_at_startup = 1
