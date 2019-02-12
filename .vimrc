@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale', { 'do': 'pip install --user flake8 isort yapf' }
 Plug 'maralla/completor.vim', { 'do': 'pip install --user jedi' }
