@@ -30,7 +30,7 @@ Plug 'jiangmiao/auto-pairs'
 " Initialize plugin system
 call plug#end()
 
-set relativenumber " number
+set number relativenumber
 set numberwidth=2
 set smartindent
 set shiftwidth=2
