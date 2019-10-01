@@ -37,8 +37,6 @@ call plug#end()
 set number relativenumber
 set numberwidth=2
 set smartindent
-set breakindent
-set autoindent
 set expandtab
 set softtabstop=2
 set tabstop=2
