@@ -49,6 +49,7 @@ set colorcolumn=80
 set nowritebackup
 set noswapfile
 set nobackup
+set termguicolors
 syntax on
 
 let g:deoplete#enable_at_startup = 1
