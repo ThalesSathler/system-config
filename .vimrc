@@ -27,6 +27,9 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'jelera/vim-javascript-syntax'
 
 " Initialize plugin system
 call plug#end()
@@ -34,10 +37,18 @@ call plug#end()
 set number relativenumber
 set numberwidth=2
 set smartindent
-set shiftwidth=2
+set breakindent
+set autoindent
+set expandtab
+set softtabstop=2
 set tabstop=2
+set shiftwidth=2
 set ruler
 set cursorline
+set colorcolumn=80
+set nowritebackup
+set noswapfile
+set nobackup
 syntax on
 
 let g:deoplete#enable_at_startup = 1
@@ -61,4 +72,9 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:NERDTreeShowHidden=1
 
-map <C-x> :NERDTreeToggle<CR>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+nnoremap <C-x> :NERDTreeToggle<CR>
