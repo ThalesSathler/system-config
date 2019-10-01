@@ -56,4 +56,6 @@ let g:ale_fixers = {
 \ 	]
 \ }
 
+let NERDTreeShowHidden=1
+
 map <C-x> :NERDTreeToggle<CR>
