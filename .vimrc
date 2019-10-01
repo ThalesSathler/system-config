@@ -36,6 +36,8 @@ call plug#end()
 
 set number relativenumber
 set numberwidth=2
+set breakindent
+set autoindent
 set smartindent
 set expandtab
 set softtabstop=2
@@ -47,7 +49,7 @@ set colorcolumn=80
 set nowritebackup
 set noswapfile
 set nobackup
-set termguicolors
+" set termguicolors
 syntax on
 
 let g:deoplete#enable_at_startup = 1
@@ -63,14 +65,14 @@ let g:ale_fixers = {
 \ 	],
 \ 	'javascript': [
 \ 		'eslint',
-\ 		'prettier'
+\     'prettier'
 \ 	]
 \ }
 let g:airline_theme = 'dark_minimal'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:NERDTreeShowHidden=1
-
+let g:jsx_ext_required = 1
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
