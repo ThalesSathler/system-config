@@ -24,8 +24,9 @@ Plug 'janko-m/vim-test'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'bling/vim-airline'
 Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -55,7 +56,9 @@ let g:ale_fixers = {
 \ 		'prettier'
 \ 	]
 \ }
-
-let NERDTreeShowHidden=1
+let g:airline_theme = 'dark_minimal'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:NERDTreeShowHidden=1
 
 map <C-x> :NERDTreeToggle<CR>
