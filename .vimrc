@@ -1,4 +1,4 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
+f empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $
@@ -27,13 +27,19 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'jelera/vim-javascript-syntax'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" Plug 'jelera/vim-javascript-syntax'
+Plug 'Shougo/deoplete.nvim'
+Plug 'wokalski/autocomplete-flow' "You will also need the following for function argument completion:
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 " Initialize plugin system
 call plug#end()
 
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 set number relativenumber
 set numberwidth=2
 set breakindent
@@ -54,8 +60,16 @@ syntax on
 
 let g:deoplete#enable_at_startup = 1
 let g:javascript_plugin_flow = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 1
+let g:ale_linters = {
+\   'python': [
+\     'flake8',
+\     'pylint'
+\   ],
+\   'javascript': [
+\     'eslint',
+\     'prettier'
+\   ]
+\ }
 let g:ale_fixers = {
 \ 	'python': [
 \ 		'isort',
@@ -68,11 +82,15 @@ let g:ale_fixers = {
 \     'prettier'
 \ 	]
 \ }
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 1
 let g:airline_theme = 'dark_minimal'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:NERDTreeShowHidden=1
-let g:jsx_ext_required = 1
+" let g:jsx_ext_required = 1
+
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
