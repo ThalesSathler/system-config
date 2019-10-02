@@ -1,4 +1,4 @@
-f empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $
@@ -30,10 +30,10 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'pangloss/vim-javascript'
 " Plug 'mxw/vim-jsx'
 " Plug 'jelera/vim-javascript-syntax'
-Plug 'Shougo/deoplete.nvim'
-Plug 'wokalski/autocomplete-flow' "You will also need the following for function argument completion:
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'wokalski/autocomplete-flow' "You will also need the following for function argument completion:
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
 
 " Initialize plugin system
 call plug#end()
@@ -58,7 +58,7 @@ set nobackup
 " set termguicolors
 syntax on
 
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 let g:javascript_plugin_flow = 1
 let g:ale_linters = {
 \   'python': [
