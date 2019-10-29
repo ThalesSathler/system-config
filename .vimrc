@@ -51,14 +51,14 @@ set tabstop=2
 set shiftwidth=2
 set ruler
 set cursorline
-set colorcolumn=80
+set colorcolumn=80,120
 set nowritebackup
 set noswapfile
 set nobackup
 " set termguicolors
 syntax on
 
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 let g:javascript_plugin_flow = 1
 let g:ale_linters = {
 \   'python': [
@@ -97,3 +97,4 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
 nnoremap <C-x> :NERDTreeToggle<CR>
+
