@@ -64,6 +64,7 @@ exec --no-startup-id pkill pulseaudio && dbus-launch
 #####################################################
 
 # Screen brightness controls
+exec "xrandr --output $(xrandr -q | grep connected | head -n 1 | cut -d ' ' -f1) --brightness 1.25"
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
@@ -291,7 +292,6 @@ exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
