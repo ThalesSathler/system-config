@@ -91,20 +91,22 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 1
 
 " airline config
-let g:airline_theme = 'dark'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
+" airline theme config
+let g:airline_theme = 'dark'
+
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint',
-  \ 'coc-prettier',
   \ 'coc-json'
   \ ]
+
+
 """ Remap keys for gotos
 nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
