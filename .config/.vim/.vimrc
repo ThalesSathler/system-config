@@ -103,10 +103,12 @@ let g:airline_theme = 'dark'
 let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-json'
+  \ 'coc-json',
+  \ 'coc-vetur',
+  \ 'coc-angular',
+  \ 'coc-python',
+  \ 'coc-yaml',
   \ ]
-
-
 """ Remap keys for gotos
 nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
