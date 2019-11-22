@@ -16,25 +16,30 @@ call plug#begin('~/.vim/plugged')
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'
+
+"""""" Linting
 Plug 'w0rp/ale', { 'do': 'pip install --user flake8 isort yapf' }
-Plug 'maralla/completor.vim', { 'do': 'pip install --user jedi' }
-Plug 'davidhalter/jedi-vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'janko-m/vim-test'
+
+"""""" Vim red .editorconfig file
 Plug 'editorconfig/editorconfig-vim'
+
+"""""" Allow multiple cursors on vim
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-surround'
+
+"""""" Auto insert quotes, parentheses, brackets, braces
 Plug 'jiangmiao/auto-pairs'
+
+"""""" Themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx'
-" Plug 'jelera/vim-javascript-syntax'
-" Plug 'Shougo/deoplete.nvim'
-" Plug 'wokalski/autocomplete-flow' "You will also need the following for function argument completion:
-" Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
 
+"""""" Syntax highlighting js
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+"""""" Auto completion
+Plug 'davidhalter/jedi-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Initialize plugin system
 call plug#end()
 
@@ -55,11 +60,10 @@ set colorcolumn=80,120
 set nowritebackup
 set noswapfile
 set nobackup
-set termguicolors
+set t_Co=256
 syntax on
 
-let g:deoplete#enable_at_startup = 1
-let g:javascript_plugin_flow = 1
+" ale config
 let g:ale_linters = {
 \   'python': [
 \     'flake8',
@@ -85,16 +89,33 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 1
-let g:airline_theme = 'dark_minimal'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:NERDTreeShowHidden=1
-" let g:jsx_ext_required = 1
 
+" airline config
+let g:airline_theme = 'dark'
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+" coc config
+let g:coc_global_extensions = [
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json'
+  \ ]
+
+" jedi config
+let g:jedi#use_tabs_not_buffers = 1
+
+" Nerdtree config
+let g:NERDTreeShowHidden=1
+nnoremap <C-x> :NERDTreeToggle<CR>
+
+" Panels navigation
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-
-nnoremap <C-x> :NERDTreeToggle<CR>
 
