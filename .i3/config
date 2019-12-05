@@ -48,10 +48,8 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ################################################################################################
 
 exec --no-startup-id volumeicon
-#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 exec --no-startup-id pulseaudio
-#####exec --no-startup-id pulseaudio --start
-#####exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start'
 #exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
@@ -64,7 +62,7 @@ exec --no-startup-id pkill pulseaudio && dbus-launch
 #####################################################
 
 # Screen brightness controls
-exec xrandr --output $(xrandr -q | grep connected | head -n 1 | cut -d ' ' -f1) --brightness 1 --gamma 0.85:0.85:0.85
+exec --no-startup-id /bin/sh -c "xrandr --output $(xrandr -q | grep connected | head -n 1 | cut -d ' ' -f1) --brightness 1 --gamma 1.25:1.25:1.25"
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
