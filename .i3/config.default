@@ -39,6 +39,13 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+### Sound section
+exec --no-startup-id volumeicon
+exec --no-startup-id pulseaudio
+bindsym $mod+Ctrl+Shift+m exec pavucontrol
+
+exec --no-startup-id pkill pulseaudio && dbus-launch
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -115,19 +122,67 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id /bin/lock
-# bindsym $mod+9 exec --no-startup-id i3lock
+bindsym $mod+9 exec --no-startup-id i3lock
 
 # Auto lock
-exec --no-startup-id xautolock -time 10 -locker lock
+exec --no-startup-id xautolock -time 10 -locker i3lock
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+## A script /bin/i3exit has to be created to make this work
+# #!/bin/sh
+# lock() {
+#     i3lock
+# }
+# 
+# case "$1" in
+#     lock)
+#         lock
+#         ;;
+#     logout)
+#         i3-msg exit
+#         ;;
+#     suspend)
+#         lock && systemctl suspend
+#         ;;
+#     hibernate)
+#         lock && systemctl hibernate
+#         ;;
+#     reboot)
+#         systemctl reboot
+#         ;;
+#     shutdown)
+#         systemctl poweroff
+#         ;;
+#     *)
+#         echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+#         exit 2
+# esac
+# 
+# exit 0
+
+# Set shut down, restart and locking features
+bindsym $mod+0 mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
