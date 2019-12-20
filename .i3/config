@@ -17,8 +17,8 @@ hide_edge_borders none
 #######################################################
 # IGOR MOD TO ALWAYS HAVE WINDOWS BORDERS
 #####################################################
-default_border pixel 3 
-default_floating_border pixel 3 
+default_border pixel 3
+default_floating_border pixel 3
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 3
@@ -304,7 +304,7 @@ exec_always --no-startup-id fix_xcursor
 # Change the variable name at the place you want to match the color
 # of your terminal like this:
 # [example]
-# If you want your bar to have the same background color as your 
+# If you want your bar to have the same background color as your
 # terminal background change the line 362 from:
 # background #14191D
 # to:
@@ -342,34 +342,33 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
 #   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes 
+	strip_workspace_numbers yes
 
-#    colors {
-#        background #222D31
-#        statusline #F9FAF9
-#        separator  #454947
+#  colors {
+#    background #222D31
+#    statusline #F9FAF9
+#    separator  #454947
 #
-##                          border  backgr. text
-#        focused_workspace  #F9FAF9 #16a085 #292F34
-#        active_workspace   #595B5B #353836 #FDF6E3
-#        inactive_workspace #595B5B #222D31 #EEE8D5
-#        binding_mode       #16a085 #2C2C2C #F9FAF9
-#        urgent_workspace   #16a085 #FDF6E3 #E5201D
+##                      border  backgr. text
+#    focused_workspace  #F9FAF9 #16a085 #292F34
+#    active_workspace   #595B5B #353836 #FDF6E3
+#    inactive_workspace #595B5B #222D31 #EEE8D5
+#    binding_mode       #16a085 #2C2C2C #F9FAF9
+#    urgent_workspace   #16a085 #FDF6E3 #E5201D
 #    }
 
-    colors {
-        background $term_background 
-        statusline #F9FAF9
-        separator  #454947
+  colors {
+    background $term_background
+    statusline #F9FAF9
+    separator  #454947
 
-##########################  border  backgr. text
-        focused_workspace  #F9FAF9 #00A0FF #292F34
-        active_workspace   #595B5B #00A0FF #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
-    }
-
+###################### border  backgr. text
+    focused_workspace  #F9FAF9 #00A0FF #292F34
+    active_workspace   #595B5B #00A0FF #FDF6E3
+    inactive_workspace #595B5B #222D31 #EEE8D5
+    binding_mode       #16a085 #2C2C2C #F9FAF9
+    urgent_workspace   #16a085 #FDF6E3 #E5201D
+  }
 }
 
 # hide/unhide i3status bar
@@ -385,7 +384,7 @@ bindsym $mod+m bar mode toggle
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+  client.placeholder      #000000 #0c0c0c #ffffff #000000
 
   client.background       #2B2C2B
 
@@ -397,8 +396,8 @@ bindsym $mod+m bar mode toggle
 #   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
 #   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
 #   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-#   client.placeholder      #000000 #0c0c0c #ffffff #000000 
-# 
+#   client.placeholder      #000000 #0c0c0c #ffffff #000000
+#
 #   client.background       #2B2C2B
 
 
@@ -407,7 +406,7 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 10 
+gaps inner 10
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -418,7 +417,7 @@ gaps outer 0
 # Smart gaps (gaps used if only more than one container on the workspace)
 # smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 # smart_borders on
 
@@ -429,32 +428,32 @@ set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym o      mode "$mode_gaps_outer"
+  bindsym i      mode "$mode_gaps_inner"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+  bindsym plus  gaps inner current plus 5
+  bindsym minus gaps inner current minus 5
+  bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+  bindsym Shift+plus  gaps inner all plus 5
+  bindsym Shift+minus gaps inner all minus 5
+  bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
+  bindsym plus  gaps outer current plus 5
+  bindsym minus gaps outer current minus 5
+  bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+  bindsym Shift+plus  gaps outer all plus 5
+  bindsym Shift+minus gaps outer all minus 5
+  bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }

@@ -40,7 +40,12 @@ Plug 'mxw/vim-jsx'
 """""" Auto completion
 Plug 'davidhalter/jedi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Initialize plugin system
+
+""""" Onedark theme
+Plug 'https://github.com/joshdick/onedark.vim'
+
+
+"Initialize plugin system
 call plug#end()
 
 filetype plugin on
@@ -62,6 +67,9 @@ set noswapfile
 set nobackup
 set t_Co=256
 syntax on
+
+" Theme
+colorscheme onedark
 
 " ale config
 let g:ale_linters = {
@@ -109,6 +117,7 @@ let g:coc_global_extensions = [
   \ 'coc-python',
   \ 'coc-yaml',
   \ ]
+
 """ Remap keys for gotos
 nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
