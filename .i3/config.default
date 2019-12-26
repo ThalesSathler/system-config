@@ -58,6 +58,8 @@ bindsym $mod+Ctrl+Shift+m exec pavucontrol
 
 exec --no-startup-id pkill pulseaudio && dbus-launch
 
+exec --no-startup-id nm-applet
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -107,6 +109,16 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+# Assign workspaces to monitors
+workspace 1 output HDMI-1
+workspace 2 output HDMI-1
+workspace 3 output HDMI-1
+workspace 4 output HDMI-1
+workspace 5 output eDP-1
+workspace 6 output eDP-1
+workspace 7 output eDP-1
+workspace 8 output eDP-1
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -261,6 +273,9 @@ bar {
   }
 }
 
-
 # Bind to mirror displays
 bindsym $mod+b exec --no-startup-id xrandr --output HDMI-1 --same-as eDP-1
+
+# Move workspace to different monitors
+bindsym $mod+z move workspace to output left
+bindsym $mod+x move workspace to output right
