@@ -145,7 +145,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id i3lock
+# bindsym $mod+9 exec --no-startup-id i3lock
+bindsym $mod+9 exec --no-startup-id blurlock
 
 # Auto lock
 exec --no-startup-id xautolock -time 10 -locker i3lock
@@ -225,9 +226,6 @@ mode "resize" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
