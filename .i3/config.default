@@ -280,5 +280,5 @@ bar {
 bindsym $mod+b exec --no-startup-id xrandr --output HDMI-1 --same-as eDP-1
 
 # Move workspace to different monitors
-bindsym $mod+z move workspace to output left
-bindsym $mod+x move workspace to output right
+bindsym $mod+Shift+z move workspace to output left
+bindsym $mod+Shift+x move workspace to output right
