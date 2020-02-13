@@ -39,7 +39,7 @@ Plug 'mxw/vim-jsx'
 
 """""" Auto completion
 Plug 'davidhalter/jedi-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 """"" Onedark theme
 Plug 'https://github.com/joshdick/onedark.vim'
@@ -83,13 +83,16 @@ let g:ale_linters = {
 \   ]
 \ }
 let g:ale_fixers = {
+\   '*': [
+\ 		'remove_trailing_lines',
+\ 		'trim_whitespace',
+\   ],
 \ 	'python': [
 \ 		'isort',
 \ 		'yapf',
-\ 		'remove_trailing_lines',
-\ 		'trim_whitespace'
 \ 	],
 \ 	'javascript': [
+\     'tsserver',
 \ 		'eslint',
 \     'prettier'
 \ 	]
@@ -97,6 +100,10 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
 " airline config
 let g:airline#extensions#ale#enabled = 1
@@ -107,34 +114,33 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " airline theme config
 let g:airline_theme = 'dark'
 
-" coc config
-let g:coc_global_extensions = [
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-json',
-  \ 'coc-vetur',
-  \ 'coc-angular',
-  \ 'coc-python',
-  \ 'coc-yaml',
-  \ ]
+" " coc config
+" let g:coc_global_extensions = [
+"   \ 'coc-pairs',
+"   \ 'coc-tsserver',
+"   \ 'coc-json',
+"   \ 'coc-vetur',
+"   \ 'coc-python',
+"   \ 'coc-yaml',
+"   \ ]
 
-""" Remap keys for gotos
-nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" """ Remap keys for gotos
+" nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+"
+" """ Use K for show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+"
+" function! s:show_documentation()
+"   if &filetype == 'vim'
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
 
-""" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-  
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-  
 " jedi config
 let g:jedi#use_tabs_not_buffers = 1
 
@@ -147,4 +153,3 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-
