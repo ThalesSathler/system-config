@@ -37,10 +37,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
-"""""" Auto completion
-Plug 'davidhalter/jedi-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 """"" Onedark theme
 Plug 'https://github.com/joshdick/onedark.vim'
 
@@ -75,13 +71,17 @@ colorscheme onedark
 let g:ale_linters = {
 \   'python': [
 \     'flake8',
-\     'pylint'
+\     'pylint',
+\     'pyls',
+\ 		'yapf',
 \   ],
 \   'javascript': [
+\     'tsserver',
 \     'eslint',
 \     'prettier'
 \   ]
 \ }
+
 let g:ale_fixers = {
 \   '*': [
 \ 		'remove_trailing_lines',
@@ -89,17 +89,19 @@ let g:ale_fixers = {
 \   ],
 \ 	'python': [
 \ 		'isort',
-\ 		'yapf',
 \ 	],
 \ 	'javascript': [
-\     'tsserver',
 \ 		'eslint',
 \     'prettier'
 \ 	]
 \ }
+
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 1
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 100
+let g:ale_close_preview_on_insert = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
@@ -114,35 +116,32 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " airline theme config
 let g:airline_theme = 'dark'
 
-" coc config
-let g:coc_global_extensions = [
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-json',
-  \ 'coc-vetur',
-  \ 'coc-python',
-  \ 'coc-yaml',
-  \ ]
-
-""" Remap keys for gotos
-nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-""" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" jedi config
-let g:jedi#use_tabs_not_buffers = 1
+" " coc config
+" let g:coc_global_extensions = [
+"   \ 'coc-pairs',
+"   \ 'coc-tsserver',
+"   \ 'coc-json',
+"   \ 'coc-vetur',
+"   \ 'coc-python',
+"   \ 'coc-yaml',
+"   \ ]
+"
+" """ Remap keys for gotos
+" nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+"
+" """ Use K for show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+"
+" function! s:show_documentation()
+"   if &filetype == 'vim'
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
 
 " Nerdtree config
 let g:NERDTreeShowHidden=1
