@@ -13,9 +13,10 @@ call plug#begin('~/.vim/plugged')
 
 " Any valid git URL is allowed
 
-" On-demand loading
+"""""" Directory management and travel
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'sheerun/vim-polyglot'
+
+" Plug 'sheerun/vim-polyglot'
 
 """""" Linting and Completion
 Plug 'w0rp/ale'
@@ -24,28 +25,24 @@ Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 
 """""" Allow multiple cursors on vim
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 
 """""" Auto insert quotes, parentheses, brackets, braces
 Plug 'jiangmiao/auto-pairs'
+
+""" Onedark theme
+Plug 'joshdick/onedark.vim'
 
 """""" Themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 """""" Syntax highlighting js
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
 
 """""" Auto completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-""""" Onedark theme
-Plug 'https://github.com/joshdick/onedark.vim'
-
-
-"Initialize plugin system
-call plug#end()
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -67,19 +64,10 @@ set nobackup
 set t_Co=256
 syntax on
 
-let mapleader = ","
+" let mapleader = ","
 
 " Theme
-colorscheme onedark
-
-" airline config
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-" airline theme config
-let g:airline_theme = 'dark'
+color onedark
 
 " Panels navigation
 nnoremap <C-H> <C-W><C-H>
@@ -89,12 +77,13 @@ nnoremap <C-L> <C-W><C-L>
 
 " Buffers config
 """ Buffer navigation
-nnoremap bn :bn
-nnoremap bp :bp
+" nnoremap bn :bn
+" nnoremap bp :bp
 
 """ Buffer deletion
-nnoremap bd :bd
+" nnoremap bd :bd
 
+source ~/.config/vim/config/vim-plugins/airline.vim
 source ~/.config/vim/config/vim-plugins/ale.vim
 source ~/.config/vim/config/vim-plugins/ale-mappings.vim
 source ~/.config/vim/config/vim-plugins/nerdtree.vim
