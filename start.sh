@@ -1,3 +1,4 @@
+#!/bin/sh
 # curl -H 'Cache-Control: no-cache' -LsSo- https://raw.githubusercontent.com/IgorAssuncao/system-config/master/start.sh | sh
 
 echo "This script automatically installs some tools and creates symlinks for you."
@@ -7,13 +8,11 @@ echo "All of these tools will be installed:
     3 - QTile (A window manager written in python)
   "
 echo "Do you want to continue?"
-read -n 1 -p "Please, answer (y/n): "choice
+read -n 1 -p "Please, answer (y/n): " choice && \
+  if [ $choice != "y" ]; then
+    exit 1
+  fi
 echo " "
-echo $choice
-echo " "
-if [ $choice != "y" ]; then
-  exit 1
-fi
 
 # echo "Downloading repo" && \
 #   git clone https://github.com/IgorAssuncao/system-config.git ~/system-config && \
