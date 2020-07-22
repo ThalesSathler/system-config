@@ -44,6 +44,8 @@ Plug 'vim-airline/vim-airline-themes'
 """""" Auto completion
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+call plug#end()
+
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set number relativenumber
@@ -83,8 +85,22 @@ nnoremap <C-L> <C-W><C-L>
 """ Buffer deletion
 " nnoremap bd :bd
 
-source ~/.config/vim/config/vim-plugins/airline.vim
-source ~/.config/vim/config/vim-plugins/ale.vim
-source ~/.config/vim/config/vim-plugins/ale-mappings.vim
-source ~/.config/vim/config/vim-plugins/nerdtree.vim
-source ~/.config/vim/config/vim-plugins/coc.vim
+function! SourceFileIfExists(filename)
+  let l:extra_file = fnamemodify(expand($MYVIMRC), ':p:h') . '/' . a:filename
+  if filereadable(l:extra_file)
+    execute ':so ' . l:extra_file
+  endif
+endfunc
+
+call SourceFileIfExists('airline.vim')
+call SourceFileIfExists('ale.vim')
+call SourceFileIfExists('ale-mappings.vim')
+call SourceFileIfExists('coc.vim')
+call SourceFileIfExists('nerdtree.vim')
+
+" source ~/.config/vim/config/vim-plugins/airline.vim
+" source ~/.config/vim/config/vim-plugins/ale.vim
+" source ~/.config/vim/config/vim-plugins/ale-mappings.vim
+" source ~/.config/vim/config/vim-plugins/nerdtree.vim
+" source ~/.config/vim/config/vim-plugins/coc.vim
+
