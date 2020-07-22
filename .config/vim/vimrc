@@ -79,14 +79,14 @@ nnoremap <C-L> <C-W><C-L>
 
 " Buffers config
 """ Buffer navigation
-" nnoremap bn :bn
-" nnoremap bp :bp
+nnoremap <silent> bn :bn<CR>
+nnoremap <silent> bp :bp<CR>
 
 """ Buffer deletion
-" nnoremap bd :bd
+nnoremap <silent> bd :bd<CR>
 
 function! SourceFileIfExists(filename)
-  let l:extra_file = fnamemodify(expand($MYVIMRC), ':p:h') . '/' . a:filename
+  let l:extra_file = fnamemodify(expand($MYVIMRC), ':p:h') . '/.config/vim/' . a:filename
   if filereadable(l:extra_file)
     execute ':so ' . l:extra_file
   endif
@@ -97,10 +97,4 @@ call SourceFileIfExists('ale.vim')
 call SourceFileIfExists('ale-mappings.vim')
 call SourceFileIfExists('coc.vim')
 call SourceFileIfExists('nerdtree.vim')
-
-" source ~/.config/vim/config/vim-plugins/airline.vim
-" source ~/.config/vim/config/vim-plugins/ale.vim
-" source ~/.config/vim/config/vim-plugins/ale-mappings.vim
-" source ~/.config/vim/config/vim-plugins/nerdtree.vim
-" source ~/.config/vim/config/vim-plugins/coc.vim
 
