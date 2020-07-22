@@ -32,6 +32,7 @@ echo "Installing kitty" && \
 if [ -a "~/.vimrc" ]; then
   echo "Renaming ~/.vimrc to ~/.vimrc.bkp"
   mv ~/.vimrc ~/.vimrc.bkp
+fi
 echo "Creating ~/.vimrc symlink" && \
   ln -s ~/system-config/.config/vim/vimrc ~/.vimrc
 
