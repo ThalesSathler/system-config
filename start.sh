@@ -14,9 +14,9 @@ read -p "Please, answer (y/n): " -n 1 choice && \
   fi
 echo " "
 
-# echo "Downloading repo" && \
-#   git clone https://github.com/IgorAssuncao/system-config.git ~/system-config && \
-#   echo "Finished downloading repo"
+echo "Downloading repo" && \
+  git clone https://github.com/IgorAssuncao/system-config.git ~/system-config && \
+  echo "Finished downloading repo"
 
 echo "Installing kitty" && \
   sudo pacman -S kitty && \
