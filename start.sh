@@ -7,7 +7,7 @@ echo "All of these tools will be installed:
     3 - QTile (A window manager written in python)
   "
 echo "Do you want to continue?"
-read -n 1 -p 'Please, answer ("y") or ("n"): ' choice
+read -n 1 -p 'Please, answer (y/n): ' choice
 echo $choice
 if [ $choice != "y" ]; then
   exit 1
