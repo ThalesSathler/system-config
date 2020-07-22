@@ -7,15 +7,14 @@ echo "All of these tools will be installed:
     3 - QTile (A window manager written in python)
   "
 echo "Do you want to continue?"
-read -n 1 -p "Please, answer (\"y\") or (\"n\"): " choice
-if [ $choice == "n" ]; then
+read -n 1 -p "Please, answer (\"y\") or (\"n\"): " choice;
+if [ $choice != "y" ]; then
   exit 1
 fi
-echo ""
 
-echo "Downloading repo" && \
-  curl -LsSo- https://github.com/IgorAssuncao/system-config.git ~/ && \
-  echo "Finished downloading repo"
+# echo "Downloading repo" && \
+#   git clone https://github.com/IgorAssuncao/system-config.git ~/system-config && \
+#   echo "Finished downloading repo"
 
 echo "Installing kitty" && \
   sudo pacman -S kitty && \
