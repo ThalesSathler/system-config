@@ -1,5 +1,5 @@
-#!/bin/sh
-# curl -H 'Cache-Control: no-cache' -LsSo- https://raw.githubusercontent.com/IgorAssuncao/system-config/master/start.sh | sh
+#!/bin/bash
+# curl -H 'Cache-Control: no-cache' -LsSo- https://raw.githubusercontent.com/IgorAssuncao/system-config/master/start.sh | bash
 
 echo "This script automatically installs some tools and creates symlinks for you."
 echo "All of these tools will be installed:
