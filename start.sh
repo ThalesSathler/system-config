@@ -1,7 +1,7 @@
 # curl -LsSo- https://raw.githubusercontent.com/IgorAssuncao/system-config/master/start.sh | sh
 
 echo "This script automatically installs some tools and creates symlinks for you."
-echo "All of these tools will be installed: \
+echo "All of these tools will be installed:\n\
     1 - Kitty (A terminal emulator)
     2 - VimPlug (A plugin manager for vim)
     3 - QTile (A window manager written in python)
@@ -9,7 +9,7 @@ echo "All of these tools will be installed: \
 echo "Do you want to continue?"
 read -p "Please, answer (\"y\") or (\"n\"):" choice
 if [$choice == "n"]; then
-  exit 1
+  exit $?
 fi
 
 echo "Downloading repo" && \
