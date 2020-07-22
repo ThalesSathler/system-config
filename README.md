@@ -8,6 +8,11 @@ Personal Vim config file
 
 It uses Vim-Plug as the PluginManager, if any help is needed with Vim-Plug, it can be found in the [official repo](https://github.com/junegunn/vim-plug)
 
+To setup correctly you need to clone the repo in `~`
+Then run: `ln -s system-config/.config/vim ~/.vimrc`
+Make sure to install all the plugins using `:PlugInstall` inside vim
+You're all set
+
 ##### Xinit
 #### Must have nvidia proprietary driver installed to work
 ### To install NVidia proprietary driver in Manjaro or Arch
