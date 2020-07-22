@@ -1,16 +1,17 @@
-# curl -LsSo- https://raw.githubusercontent.com/IgorAssuncao/system-config/master/start.sh | sh
+# curl -H 'Cache-Control: no-cache' -LsSo- https://raw.githubusercontent.com/IgorAssuncao/system-config/master/start.sh | sh
 
 echo "This script automatically installs some tools and creates symlinks for you."
-echo "All of these tools will be installed:\n\
+echo "All of these tools will be installed:
     1 - Kitty (A terminal emulator)
     2 - VimPlug (A plugin manager for vim)
     3 - QTile (A window manager written in python)
   "
 echo "Do you want to continue?"
-read -p "Please, answer (\"y\") or (\"n\"):" choice
-if [$choice == "n"]; then
-  exit $?
+read -n 1 -p "Please, answer (\"y\") or (\"n\"): " choice
+if [ $choice == "n" ]; then
+  exit 1
 fi
+echo ""
 
 echo "Downloading repo" && \
   curl -LsSo- https://github.com/IgorAssuncao/system-config.git ~/ && \
