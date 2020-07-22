@@ -86,7 +86,7 @@ nnoremap <silent> bp :bp<CR>
 nnoremap <silent> bd :bd<CR>
 
 function! SourceFileIfExists(filename)
-  let l:extra_file = fnamemodify(expand($MYVIMRC), ':p:h') . '/.config/vim/' . a:filename
+  let l:extra_file = fnamemodify(expand($MYVIMRC), ':p:h') . '/system-config/.config/vim/' . a:filename
   if filereadable(l:extra_file)
     execute ':so ' . l:extra_file
   endif
@@ -95,6 +95,6 @@ endfunc
 call SourceFileIfExists('airline.vim')
 call SourceFileIfExists('ale.vim')
 call SourceFileIfExists('ale-mappings.vim')
-call SourceFileIfExists('coc.vim')
+" call SourceFileIfExists('coc.vim')
 call SourceFileIfExists('nerdtree.vim')
 

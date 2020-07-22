@@ -30,8 +30,9 @@ from libqtile import layout, bar, widget
 
 from typing import List  # noqa: F401
 
+GROUPS = "asdfuiop"
 MOD = "mod4"
-TERMINAL = "sterminal"
+TERMINAL = "alacritty"
 BROWSER = "firefox-developer-edition"
 
 keys = [
@@ -54,6 +55,8 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([MOD, "shift"], "Return", lazy.layout.toggle_split()),
+
+    # Spawn terminal
     Key([MOD], "Return", lazy.spawn(TERMINAL)),
 
     # Toggle between different layouts as defined below
@@ -64,30 +67,40 @@ keys = [
     Key([MOD, "control"], "q", lazy.shutdown()),
     Key([MOD], "r", lazy.spawncmd()),
 
+    # Spawn dmenu_run
+    Key([MOD], "c", lazy.spawn("dmenu_run")),
     Key([MOD], "b", lazy.spawn(BROWSER)),
 ]
 
-groups = [Group(i) for i in "asdfuiop"]
+groups = [Group(i) for i in GROUPS]
 
 for i in groups:
     keys.extend([
-        # mod1 + letter of group = switch to group
+        # MOD + letter of group = switch to group
         Key([MOD], i.name, lazy.group[i.name].toscreen()),
 
-        # mod1 + shift + letter of group = switch to & move focused window to group
+        # MOD + shift + letter of group = switch to & move focused window to group
         Key([MOD, "shift"], i.name, lazy.window.togroup(i.name)),
     ])
 
+# Layout theme that will be applied to all layouts specified below
+LAYOUT_THEME = {
+    "margin": 5,
+    "border_width": 2,
+    "border_focus": "00ffff",
+    "border_normal": "969896",
+}
+
 layouts = [
-    layout.Max(),
-    layout.Stack(num_stacks=2)
+    layout.MonadTall(**LAYOUT_THEME),
+    layout.Stack(num_stacks = 4)
 ]
 
-widget_defaults = dict(
-    font='sans',
-    fontsize=10,
-    padding=3,
-)
+widget_defaults = {
+    "font": "monospace",
+    "fontsize": 12,
+    "padding": 3
+}
 extension_defaults = widget_defaults.copy()
 
 screens = [
@@ -108,10 +121,8 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([MOD], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([MOD], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
+    Drag([MOD], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([MOD], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([MOD], "Button2", lazy.window.bring_to_front())
 ]
 
