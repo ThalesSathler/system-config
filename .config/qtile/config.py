@@ -32,7 +32,7 @@ from typing import List  # noqa: F401
 
 GROUPS = "asdfuiop"
 MOD = "mod4"
-TERMINAL = "alacritty"
+TERMINAL = "kitty"
 BROWSER = "firefox-developer-edition"
 
 keys = [
