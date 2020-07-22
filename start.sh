@@ -8,7 +8,9 @@ echo "All of these tools will be installed:
   "
 echo "Do you want to continue?"
 read -n 1 -p 'Please, answer (y/n): ' choice
-printf "%b" "$choice"
+echo " "
+echo $choice
+echo " "
 if [ $choice != "y" ]; then
   exit 1
 fi
