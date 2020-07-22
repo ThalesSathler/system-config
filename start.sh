@@ -9,7 +9,7 @@ echo "All of these tools will be installed: \
 echo "Do you want to continue?"
 read -p "Please, answer (\"y\") or (\"n\"):" choice
 if [$choice == "n"]; then
-  exit(1)
+  exit 1
 fi
 
 echo "Downloading repo" && \
