@@ -69,6 +69,8 @@ keys = [
 
     # Spawn dmenu_run
     Key([MOD], "c", lazy.spawn("dmenu_run")),
+
+    # Spawn browser
     Key([MOD], "b", lazy.spawn(BROWSER)),
 ]
 

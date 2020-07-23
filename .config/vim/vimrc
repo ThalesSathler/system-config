@@ -1,3 +1,4 @@
+"""""" VimPlug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -16,10 +17,12 @@ call plug#begin('~/.vim/plugged')
 """""" Directory management and travel
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-" Plug 'sheerun/vim-polyglot'
+"""""" Syntax highlighting
+Plug 'sheerun/vim-polyglot'
 
 """""" Linting and Completion
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 """""" Vim read .editorconfig file
 Plug 'editorconfig/editorconfig-vim'
@@ -41,13 +44,13 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'pangloss/vim-javascript'
 " Plug 'mxw/vim-jsx'
 
-"""""" Auto completion
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 call plug#end()
 
+"""""" Custom
+syntax on
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+" set omnifunc=ale#completion#OmniFunc
 set number relativenumber
 set numberwidth=2
 set breakindent
@@ -64,7 +67,6 @@ set nowritebackup
 set noswapfile
 set nobackup
 set t_Co=256
-syntax on
 
 " let mapleader = ","
 
@@ -79,11 +81,10 @@ nnoremap <C-L> <C-W><C-L>
 
 " Buffers config
 """ Buffer navigation
-nnoremap <silent> bn :bn<CR>
-nnoremap <silent> bp :bp<CR>
-
+nnoremap <silent> <C-b>n :bn<CR>
+nnoremap <silent> <C-b>p :bp<CR>
 """ Buffer deletion
-nnoremap <silent> bd :bd<CR>
+nnoremap <silent> <C-b>d :bd<CR>
 
 function! SourceFileIfExists(filename)
   let l:extra_file = fnamemodify(expand($MYVIMRC), ':p:h') . '/system-config/.config/vim/' . a:filename
@@ -93,8 +94,7 @@ function! SourceFileIfExists(filename)
 endfunc
 
 call SourceFileIfExists('airline.vim')
-call SourceFileIfExists('ale.vim')
-call SourceFileIfExists('ale-mappings.vim')
-" call SourceFileIfExists('coc.vim')
+" call SourceFileIfExists('ale.vim')
+" call SourceFileIfExists('ale-mappings.vim')
+call SourceFileIfExists('coc.vim')
 call SourceFileIfExists('nerdtree.vim')
-

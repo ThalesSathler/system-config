@@ -4,7 +4,6 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-json',
 \ 'coc-vetur',
-\ 'coc-angular',
 \ 'coc-python',
 \ 'coc-yaml',
 \ ]
@@ -17,7 +16,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 """"" Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-  
+
 function! s:show_documentation()
     if &filetype == 'vim'
       execute 'h '.expand('<cword>')
@@ -25,4 +24,3 @@ function! s:show_documentation()
       call CocAction('doHover')
     endif
 endfunction
-
