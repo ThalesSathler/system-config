@@ -35,6 +35,8 @@ if [ -a "~/.vimrc" ]; then
 fi
 echo "Creating ~/.vimrc symlink" && \
   ln -s ~/system-config/.config/vim/vimrc ~/.vimrc
+echo "Creating ~/.vim/coc-settings synlink" && \
+  ln -s ~/system-config/.config/vim/coc-settings.json ~/.vim/coc-settings.json
 
 echo "Installing VimPlug" && \
   echo "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -51,4 +53,3 @@ echo "Installing Qtile" && \
   fi && \
     ln -s ~/system-config/.config/qtile/ ~/.config/qtile && \
     echo "Finished creating qtile symlink"
-
