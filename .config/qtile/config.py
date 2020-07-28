@@ -72,6 +72,9 @@ keys = [
 
     # Spawn browser
     Key([MOD], "b", lazy.spawn(BROWSER)),
+
+    # Spawn Thunar File Manager
+    Key([MOD], "F3", lazy.spawn("thunar")),
 ]
 
 groups = [Group(i) for i in GROUPS]
