@@ -85,7 +85,10 @@ for i in groups:
         Key([MOD], i.name, lazy.group[i.name].toscreen()),
 
         # MOD + shift + letter of group = switch to & move focused window to group
-        Key([MOD, "shift"], i.name, lazy.window.togroup(i.name)),
+        Key([MOD, "control"], i.name, lazy.window.togroup(i.name)),
+
+        # MOD + shift + letter of group = switch to & move focused window to group
+        Key([MOD, "shift"], i.name, lazy.window.togroup(i.name), lazy.group[i.name].toscreen()),
     ])
 
 # Layout theme that will be applied to all layouts specified below

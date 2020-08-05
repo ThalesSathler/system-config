@@ -2,7 +2,7 @@
 if empty(glob('${XDG_DATA_HOME:-$HOME/.local/share}/nvim/site/autoload/plug.vim'))
   silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $
+  " autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Specify a directory for plugins
@@ -48,7 +48,7 @@ call plug#end()
 
 """""" Custom
 syntax on
-filetype plugin on
+filetype plugin indent on
 " set omnifunc=syntaxcomplete#Complete
 " set omnifunc=ale#completion#OmniFunc
 set number relativenumber
@@ -66,9 +66,9 @@ set colorcolumn=80,120
 set nowritebackup
 set noswapfile
 set nobackup
-set t_Co=256
+set termguicolors
 
-" let mapleader = ","
+let mapleader = ","
 
 " Theme
 colorscheme onedark
@@ -81,16 +81,17 @@ nnoremap <C-L> <C-W><C-L>
 
 " Buffers config
 """ Buffer navigation
-nnoremap <silent> <C-b>n :bn<CR>
-nnoremap <silent> <C-b>p :bp<CR>
+nnoremap <silent> <Leader>bn :bn<CR>
+nnoremap <silent> <Leader>bp :bp<CR>
 """ Buffer deletion
-nnoremap <silent> <C-b>d :bd<CR>
+nnoremap <silent> <Leader>bd :bd<CR>
 
 function! SourceFileIfExists(filename)
-  let l:extra_file = fnamemodify(expand($MYVIMRC), ':p:h') . '/system-config/.config/nvim/' . a:filename
+  let l:extra_file = fnamemodify($HOME, ':p:h') . '/system-config/.config/nvim/' . a:filename
   if filereadable(l:extra_file)
     execute ':so ' . l:extra_file
   endif
+  unlet l:extra_file
 endfunc
 
 call SourceFileIfExists('airline.vim')
