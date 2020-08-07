@@ -68,16 +68,25 @@ set noswapfile
 set nobackup
 set termguicolors
 
-let mapleader = ","
+" let mapleader = ","
+let mapleader = "\<Space>"
 
 " Theme
 colorscheme onedark
 
 " Panels navigation
 nnoremap <C-H> <C-W><C-H>
+" Same as:
+" nnoremap <silent> <C-H> :wincmd h
 nnoremap <C-J> <C-W><C-J>
+" Same as:
+" nnoremap <silent> <C-J> :wincmd j
 nnoremap <C-K> <C-W><C-K>
+" Same as:
+" nnoremap <silent> <C-K> :wincmd K
 nnoremap <C-L> <C-W><C-L>
+" Same as:
+" nnoremap <silent> <C-L> :wincmd L
 
 " Buffers config
 """ Buffer navigation
