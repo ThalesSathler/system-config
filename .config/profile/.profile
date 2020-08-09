@@ -5,7 +5,7 @@ export PATH
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_DIRS=/usr/etc/xdg:/etc/xdg
 export BROWSER=/usr/bin/firefox-developer-edition
-export TERMINAL=/usr/bin/sterminal
+export TERMINAL=/usr/bin/kitty
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
