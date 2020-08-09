@@ -116,4 +116,7 @@ read -p "Please, answer (y/n): " -n 1 choice && \
     mv ~/.Xresources ~/.Xresources.bkp
     echo "Renaming ~/.xinitrc to ~/.xinitrc.bkp"
     mv ~/.xinitrc ~/.xinit.bkp
+    echo "Creating symlinks" && \
+      ln -s ~/system-config/.config/x/.Xresources ~/.Xresources && \
+      ln -s ~/system-config/.config/x/.xinitrc ~/.xinitrc
   fi
