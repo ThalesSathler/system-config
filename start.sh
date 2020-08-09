@@ -10,6 +10,7 @@ echo "All of these tools will be prompted to install:
     - NeoVim (Newer version of vim)
     - Custom vimrc (vim config file)
     - Custom init.vim (nvim config file)
+    - Custom Xresources
   "
 echo "Do you want to continue?"
 read -p "Please, answer (y/n): " -n 1 choice && \
@@ -97,7 +98,7 @@ read -p "Please, answer (y/n): " -n 1 choice && \
       ln -s ~/system-config/.config/vim/coc-settings.json ~/.vim/coc-settings.json
   fi
 
-  echo "Install custom init.vim (nvim config file)?"
+echo "Install custom init.vim (nvim config file)?"
 read -p "Please, answer (y/n): " -n 1 choice && \
   if [ $choice == "y" ]; then
     if [ -d "~/.config/nvim" ]; then
@@ -106,4 +107,13 @@ read -p "Please, answer (y/n): " -n 1 choice && \
     fi
     echo "Creating ~/.config/nvim symlink" && \
       ln -s ~/system-config/.config/nvim ~/.config/nvim
+  fi
+
+echo "Install custom Xresources?"
+read -p "Please, answer (y/n): " -n 1 choice && \
+  if [ $choice == "y" ]; then
+    echo "Renaming ~/.Xresources to ~/.Xresources.bkp"
+    mv ~/.Xresources ~/.Xresources.bkp
+    echo "Renaming ~/.xinitrc to ~/.xinitrc.bkp"
+    mv ~/.xinitrc ~/.xinit.bkp
   fi
