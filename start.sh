@@ -6,6 +6,7 @@ echo "All of these tools will be prompted to install:
     - QTile (A window manager written in python)
     - Kitty (A terminal emulator)
     - Kitty custom config
+    - Oh-my-zsh
     - NeoVim (Newer version of vim)
     - Custom vimrc (vim config file)
     - Custom init.vim (nvim config file)
@@ -66,6 +67,21 @@ read -p "Please, answer (y/n): " -n 1 choice && \
       fi && \
         ln -s ~/system-config/.config/kitty/ ~/.config/kitty && \
         echo "Finished creating kitty symlink"
+  fi
+
+echo "Install Oh-my-zsh?"
+read -p "Please, answer (y/n): " -n 1 choice && \
+  if [ $choice != "y" ]; then
+    exit 1
+  else
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+      echo "Creating ~/.zshrc symlink" && \
+      if [ -a "~/.zshrc" ]; then
+        echo "Renaming ~/.zshrc to ~/.zshrc.bkp"
+        mv ~/.zshrc ~/.zshrc.bkp
+      fi && \
+        ln -s ~/system-config/.config/zsh/.zshrc ~/.zshrc && \
+        echo "Finished creating ~/.zshrc symlink"
   fi
 
 echo "Install NeoVim?"
