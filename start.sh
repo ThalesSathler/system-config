@@ -13,8 +13,8 @@ echo "All of these tools will be prompted to install:
   "
 echo "Do you want to continue?"
 read -p "Please, answer (y/n): " -n 1 choice && \
-  if [ $choice != "y" ]; then
-    exit 1
+  if [ $choice == "y" ]; then
+    exit 0
   fi
 
 echo "Downloading repo" && \
@@ -23,9 +23,7 @@ echo "Downloading repo" && \
 
 echo "Install Qtile?"
 read -p "Please, answer (y/n): " -n 1 choice && \
-  if [ $choice != "y" ]; then
-    exit 1
-  else
+  if [ $choice == "y" ]; then
     echo "Installing Qtile" && \
       sudo pacman -S qtile && \
       echo "Finished installed Qtile" && \
@@ -40,9 +38,7 @@ read -p "Please, answer (y/n): " -n 1 choice && \
 
 echo "Install Kitty?"
 read -p "Please, answer (y/n): " -n 1 choice && \
-  if [ $choice != "y" ]; then
-    exit 1
-  else
+  if [ $choice == "y" ]; then
     echo "Installing kitty" && \
       sudo pacman -S kitty && \
       echo "Finished installing kitty"
@@ -57,23 +53,19 @@ read -p "Please, answer (y/n): " -n 1 choice && \
 
 echo "Install custom Kitty config?"
 read -p "Please, answer (y/n): " -n 1 choice && \
-  if [ $choice != "y" ]; then
-    exit 1
-  else
-      echo "Creating kitty symlink" && \
-      if [ -d "~/.config/kitty" ]; then
-        echo "Renaming ~/.config/kitty to ~/.config/kitty.bkp"
-        mv ~/.config/kitty ~/.config/kitty.bkp
-      fi && \
-        ln -s ~/system-config/.config/kitty/ ~/.config/kitty && \
-        echo "Finished creating kitty symlink"
+  if [ $choice == "y" ]; then
+    echo "Creating kitty symlink" && \
+    if [ -d "~/.config/kitty" ]; then
+      echo "Renaming ~/.config/kitty to ~/.config/kitty.bkp"
+      mv ~/.config/kitty ~/.config/kitty.bkp
+    fi && \
+      ln -s ~/system-config/.config/kitty/ ~/.config/kitty && \
+      echo "Finished creating kitty symlink"
   fi
 
 echo "Install Oh-my-zsh?"
 read -p "Please, answer (y/n): " -n 1 choice && \
-  if [ $choice != "y" ]; then
-    exit 1
-  else
+  if [ $choice == "y" ]; then
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
       echo "Creating ~/.zshrc symlink" && \
       if [ -a "~/.zshrc" ]; then
@@ -86,9 +78,7 @@ read -p "Please, answer (y/n): " -n 1 choice && \
 
 echo "Install NeoVim?"
 read -p "Please, answer (y/n): " -n 1 choice && \
-  if [ $choice != "y" ]; then
-    exit 1
-  else
+  if [ $choice == "y" ]; then
     echo "Installing NeoVim" && \
       sudo pacman -S neovim && \
       echo "Finished installing NeoVim"
@@ -96,9 +86,7 @@ read -p "Please, answer (y/n): " -n 1 choice && \
 
 echo "Install custom vimrc?"
 read -p "Please, answer (y/n): " -n 1 choice && \
-  if [ $choice != "y" ]; then
-    exit 1
-  else
+  if [ $choice == "y" ]; then
     if [ -a "~/.vimrc" ]; then
       echo "Renaming ~/.vimrc to ~/.vimrc.bkp"
       mv ~/.vimrc ~/.vimrc.bkp
@@ -111,9 +99,7 @@ read -p "Please, answer (y/n): " -n 1 choice && \
 
   echo "Install custom init.vim (nvim config file)?"
 read -p "Please, answer (y/n): " -n 1 choice && \
-  if [ $choice != "y" ]; then
-    exit 1
-  else
+  if [ $choice == "y" ]; then
     if [ -d "~/.config/nvim" ]; then
       echo "Renaming ~/.config/nvim to ~/.config/nvim.bkp"
       mv ~/.config/nvim ~/.config/nvim.bkp
