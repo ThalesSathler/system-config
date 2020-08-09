@@ -24,16 +24,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import os
+import subprocess
+
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
-from libqtile import layout, bar, widget
+from libqtile import layout, bar, widget, hook
 
 from typing import List  # noqa: F401
 
-GROUPS = "asdfuiop"
+GROUPS = "12345678"
 MOD = "mod4"
 TERMINAL = "kitty"
 BROWSER = "firefox-developer-edition"
+FILEMANAGER = "pacmanfm"
 
 keys = [
     # Switch between windows in current stack pane
@@ -67,14 +71,26 @@ keys = [
     Key([MOD, "control"], "q", lazy.shutdown()),
     Key([MOD], "r", lazy.spawncmd()),
 
+    # Spawn bmenu
+    Key([MOD, "control"], "b", lazy.spawn(f"{TERMINAL} -e bmenu")),
+
     # Spawn dmenu_run
     Key([MOD], "c", lazy.spawn("dmenu_run")),
+
+    # Spawn morce_menu
+    Key([MOD], "z", lazy.spawn("morc_menu")),
 
     # Spawn browser
     Key([MOD], "b", lazy.spawn(BROWSER)),
 
-    # Spawn Thunar File Manager
-    Key([MOD], "F3", lazy.spawn("thunar")),
+    # Spawn File Manager
+    Key([MOD], "F3", lazy.spawn(FILEMANAGER)),
+
+    # Spawn pavucontrol
+    Key([MOD, "control", "shift"], "m", lazy.spawn("pavucontrol")),
+
+    # Spawn blurlock (Lock screen)
+    Key([MOD], "9", lazy.spawn("blurlock"))
 ]
 
 groups = [Group(i) for i in GROUPS]
@@ -118,9 +134,8 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
-                # widget.TextBox("default config", name="default"),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Clock(format='%Y-%m-%d %a %I:%M %p')
             ],
             24,
         ),
@@ -168,3 +183,9 @@ focus_on_window_activation = "smart"
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+@hook.subscribe.startup
+def autostart():
+    scriptLocation = '~/system-config/.config/qtile/autostart.sh'
+    script = os.path.expanduser(scriptLocation)
+    subprocess.call([script])
