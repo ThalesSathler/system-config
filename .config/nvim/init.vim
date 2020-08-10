@@ -18,7 +18,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 """""" Syntax highlighting
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 """""" Linting and Completion
 Plug 'w0rp/ale'
