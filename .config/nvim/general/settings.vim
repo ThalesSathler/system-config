@@ -17,9 +17,9 @@ set nowritebackup
 set noswapfile
 set nobackup
 set incsearch
-set termguicolors
 " set omnifunc=syntaxcomplete#Complete
 " set omnifunc=ale#completion#OmniFunc
 
-" let mapleader = ","
-let mapleader = "\<Space>"
+if (has("termguicolors"))
+  set termguicolors
+endif

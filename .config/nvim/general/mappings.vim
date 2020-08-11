@@ -1,3 +1,6 @@
+" let mapleader = ","
+let mapleader = "\<Space>"
+
 " Panels navigation
 nnoremap <C-H> <C-W><C-H>
 " Same as:
