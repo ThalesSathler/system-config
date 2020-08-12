@@ -1,3 +1,4 @@
+syntax enable
 syntax on
 filetype plugin indent on
 set number relativenumber
@@ -13,13 +14,14 @@ set ruler
 set cursorline
 set colorcolumn=80,120
 set nowrap
-set nowritebackup
 set noswapfile
+set nowritebackup
 set nobackup
 set incsearch
 " set omnifunc=syntaxcomplete#Complete
 " set omnifunc=ale#completion#OmniFunc
 
+set background=dark
 if (has("termguicolors"))
   set termguicolors
 endif
