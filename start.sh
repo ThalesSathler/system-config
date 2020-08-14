@@ -3,14 +3,13 @@
 
 echo "This script automatically installs some tools and creates symlinks for you."
 echo "All of these tools will be prompted to install:
-    - QTile (A window manager written in python)
-    - Kitty (A terminal emulator)
-    - Kitty custom config
+    - i3 custom config
+    - Kitty
+    - Kitty custom files
     - Oh-my-zsh
     - NeoVim (Newer version of vim)
     - Custom vimrc (vim config file)
     - Custom init.vim (nvim config file)
-    - Custom Xresources
   "
 echo "Do you want to continue?"
 read -p "Please, answer (y/n): " -n 1 choice && \
@@ -18,23 +17,25 @@ read -p "Please, answer (y/n): " -n 1 choice && \
     exit 0
   fi
 
-echo "Downloading repo" && \
-  git clone https://github.com/IgorAssuncao/system-config.git ~/system-config && \
-  echo "Finished downloading repo"
-
-echo "Install Qtile?"
+echo "Setup i3 config?"
 read -p "Please, answer (y/n): " -n 1 choice && \
   if [ $choice == "y" ]; then
-    echo "Installing Qtile" && \
-      sudo pacman -S qtile && \
-      echo "Finished installed Qtile" && \
-      echo "Creating qtile symlink" && \
-      if [ -d "~/.config/qtile" ]; then
-        echo "Renaming ~/.config/qtile to ~/.config/qtile.bkp"
-        mv ~/.config/qtile ~/.config/qtile.bkp
-      fi && \
-        ln -s ~/system-config/.config/qtile/ ~/.config/qtile && \
-        echo "Finished creating qtile symlink"
+    if [ -d "~/.i3/config" ]; then
+      echo "Renaming ~/.i3/config to ~/.i3/config.bkp"
+      mv ~/.i3/config ~/.i3/config.bkp
+    fi
+    echo "Creating ~/.i3/config symlink" && \
+      ln -s ~/system-config/.i3/config ~/.i3/config
+  fi
+
+echo "Install Custom Fonts?"
+read -p "Please, answer (y/n): " -n 1 choice && \
+  if [ $choice == "y" ]; then
+      echo "Copying fonts to ~/.local/share/fonts" && \
+      mkdir -p ~/.local/share/fonts && \
+      cp ~/system-config/fonts/ttf/* ~/.local/share/fonts && \
+      fc-cache && \
+      echo "Finished creating copying fonts"
   fi
 
 echo "Install Kitty?"
@@ -75,6 +76,15 @@ read -p "Please, answer (y/n): " -n 1 choice && \
       fi && \
         ln -s ~/system-config/.config/zsh/.zshrc ~/.zshrc && \
         echo "Finished creating ~/.zshrc symlink"
+        echo "Cloning spaceshipt theme" && \
+        git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" && \
+        echo "Creating ~/.spaceship symlink" && \
+        ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" && \
+        echo "Finished creating spaceshipt symlink"
+        echo "Installing ZInit (ZSH Plugin Manager)"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)" && \
+        echo "Finished downloading ZInit"
+
   fi
 
 echo "Install NeoVim?"
@@ -107,16 +117,4 @@ read -p "Please, answer (y/n): " -n 1 choice && \
     fi
     echo "Creating ~/.config/nvim symlink" && \
       ln -s ~/system-config/.config/nvim ~/.config/nvim
-  fi
-
-echo "Install custom Xresources?"
-read -p "Please, answer (y/n): " -n 1 choice && \
-  if [ $choice == "y" ]; then
-    echo "Renaming ~/.Xresources to ~/.Xresources.bkp"
-    mv ~/.Xresources ~/.Xresources.bkp
-    echo "Renaming ~/.xinitrc to ~/.xinitrc.bkp"
-    mv ~/.xinitrc ~/.xinit.bkp
-    echo "Creating symlinks" && \
-      ln -s ~/system-config/.config/x/.Xresources ~/.Xresources && \
-      ln -s ~/system-config/.config/x/.xinitrc ~/.xinitrc
   fi
