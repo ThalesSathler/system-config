@@ -20,7 +20,8 @@ read -p "Please, answer (y/n): " -n 1 choice && \
 echo "Setup i3 config?"
 read -p "Please, answer (y/n): " -n 1 choice && \
   if [ $choice == "y" ]; then
-    if [ -d "~/.i3/config" ]; then
+    FILE=~/.i3/config
+    if [ -f "$FILE" ]; then
       echo "Renaming ~/.i3/config to ~/.i3/config.bkp"
       mv ~/.i3/config ~/.i3/config.bkp
     fi
@@ -91,7 +92,7 @@ echo "Install NeoVim?"
 read -p "Please, answer (y/n): " -n 1 choice && \
   if [ $choice == "y" ]; then
     echo "Installing NeoVim" && \
-      sudo pacman -S neovim && \
+      sudo pacman -S neovim-nightly && \
       echo "Finished installing NeoVim"
   fi
 
