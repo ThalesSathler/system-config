@@ -1,15 +1,12 @@
-# $HOME/.profile
+  # $HOME/.profile
 
-# Set our default path
+  # Set our default path
 export PATH
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CONFIG_DIRS=/usr/etc/xdg:/etc/xdg
 export BROWSER=/usr/bin/firefox-developer-edition
 export TERMINAL=/usr/bin/kitty
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # Load profiles from /etc/profile.d
 if test -d /etc/profile.d/; then

@@ -4,7 +4,7 @@
 #### Variables
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
-set $TERMINAL xfce4-terminal
+set $TERMINAL kitty
 set $BROWSER brave
 
 # set default desktop layout (default is tiling)

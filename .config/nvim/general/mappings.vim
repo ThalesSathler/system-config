@@ -21,3 +21,12 @@ nnoremap <silent> <Leader>bn :bn<CR>
 nnoremap <silent> <Leader>bp :bp<CR>
 """ Buffer deletion
 nnoremap <silent> <Leader>bd :bd<CR>
+
+" Copy/Paste from/to clipboard
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>y "+y
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+nnoremap <Leader>v :tabedit $MYVIMRC<CR>

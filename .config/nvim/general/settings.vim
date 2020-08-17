@@ -17,7 +17,11 @@ set nowrap
 set noswapfile
 set nowritebackup
 set nobackup
+set nocompatible
+set hidden
+set encoding=utf-8
 set incsearch
+set showtabline=0
 " set omnifunc=syntaxcomplete#Complete
 " set omnifunc=ale#completion#OmniFunc
 

@@ -14,15 +14,17 @@ call SourceFileIfExists('general/settings.vim')
 
 " Mappings
 call SourceFileIfExists('general/mappings.vim')
+call SourceFileIfExists('general/terminal.vim')
 
 " VimPlug Init
 call SourceFileIfExists('vim-plug/plugins.vim')
 
 " Plugins configs
-call SourceFileIfExists('plugins-config/ale.vim')
 call SourceFileIfExists('plugins-config/coc.vim')
 call SourceFileIfExists('plugins-config/nerdtree.vim')
+call SourceFileIfExists('plugins-config/vim-ctrlspace.vim')
+call SourceFileIfExists('plugins-config/vim-go.vim')
 
 " Themes
 call SourceFileIfExists('themes/airline.vim')
-call SourceFileIfExists('themes/onedark.vim')
+call SourceFileIfExists('themes/dracula.vim')

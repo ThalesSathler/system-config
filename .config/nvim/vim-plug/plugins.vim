@@ -23,12 +23,13 @@ call plug#begin(vimPlugDir . '/plugged')
 
 """""" Directory management and travel
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'vim-ctrlspace/vim-ctrlspace'
 
 """""" Syntax highlighting
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sheerun/vim-polyglot'
 
 """""" Linting and Completion
-Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 """""" Vim read .editorconfig file
@@ -43,9 +44,13 @@ Plug 'jiangmiao/auto-pairs'
 """ Onedark theme
 Plug 'joshdick/onedark.vim'
 
+""" Terminal
+Plug 'vimlab/split-term.vim'
+
 """""" Themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 """""" Syntax highlighting js
 " Plug 'pangloss/vim-javascript'
