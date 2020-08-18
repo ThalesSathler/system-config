@@ -21,9 +21,10 @@ call SourceFileIfExists('vim-plug/plugins.vim')
 
 " Plugins configs
 call SourceFileIfExists('plugins-config/coc.vim')
-call SourceFileIfExists('plugins-config/nerdtree.vim')
 call SourceFileIfExists('plugins-config/vim-ctrlspace.vim')
+call SourceFileIfExists('plugins-config/vim-test.vim')
 call SourceFileIfExists('plugins-config/vim-go.vim')
+call SourceFileIfExists('plugins-config/nerdtree.vim')
 
 " Themes
 call SourceFileIfExists('themes/airline.vim')

@@ -30,3 +30,5 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 nnoremap <Leader>v :tabedit $MYVIMRC<CR>
+
+nnoremap <Leader>jf :%!python -m json.tool<CR>

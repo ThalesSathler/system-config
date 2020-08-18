@@ -41,6 +41,10 @@ Plug 'editorconfig/editorconfig-vim'
 """""" Auto insert quotes, parentheses, brackets, braces
 Plug 'jiangmiao/auto-pairs'
 
+
+""" testing and debugging
+Plug 'vim-test/vim-test'
+
 """ Onedark theme
 Plug 'joshdick/onedark.vim'
 

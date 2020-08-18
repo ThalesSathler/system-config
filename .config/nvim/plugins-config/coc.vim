@@ -13,6 +13,7 @@ let g:coc_global_extensions = [
 nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> \gd :vsp<CR><Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 
 """"" Use K for show documentation in preview window
