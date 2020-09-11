@@ -1,11 +1,16 @@
 {
-  "diagnostic.enable": false,
-  "diagnostic.displayByAle": true,
+  "diagnostic.enable": true,
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
       "filetypes": ["terraform"],
       "initializationOptions": {}
+    },
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
     }
   }
 }
