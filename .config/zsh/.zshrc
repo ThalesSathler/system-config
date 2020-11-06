@@ -107,8 +107,8 @@ if command -v pyenv 1>/dev/null 2>&1; then
  eval "$(pyenv init -)"
 fi
 
-export GO_PATH="/home/thalessathler/go"
-export PATH="$PATH:$HOME/go/bin"
+export GOPATH="/home/thales/go"
+export PATH="$PATH:/home/thales/go/bin"
 
 
 SPACESHIP_PROMPT_ORDER=(

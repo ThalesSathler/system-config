@@ -35,6 +35,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 """""" Vim read .editorconfig file
 Plug 'editorconfig/editorconfig-vim'
 
+"""""" Vim read .editorconfig file
+Plug 'tpope/vim-fugitive'
+
 """""" Allow multiple cursors on vim
 " Plug 'terryma/vim-multiple-cursors'
 
