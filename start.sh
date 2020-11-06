@@ -70,21 +70,19 @@ echo "Install Oh-my-zsh?"
 read -p "Please, answer (y/n): " -n 1 choice && \
   if [ $choice == "y" ]; then
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-      echo "Creating ~/.zshrc symlink" && \
-      if [ -a "~/.zshrc" ]; then
-        echo "Renaming ~/.zshrc to ~/.zshrc.bkp"
-        mv ~/.zshrc ~/.zshrc.bkp
-      fi && \
-        ln -s ~/system-config/.config/zsh/.zshrc ~/.zshrc && \
-        echo "Finished creating ~/.zshrc symlink"
-        echo "Cloning spaceshipt theme" && \
-        git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" && \
-        echo "Creating ~/.spaceship symlink" && \
-        ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" && \
-        echo "Finished creating spaceshipt symlink"
-        echo "Installing ZInit (ZSH Plugin Manager)"
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)" && \
-        echo "Finished downloading ZInit"
+    echo "Creating ~/.zshrc symlink" && \
+    echo "Renaming ~/.zshrc to ~/.zshrc.bkp"
+    mv ~/.zshrc ~/.zshrc.bkp
+    ln -s ~/system-config/.config/zsh/.zshrc ~/.zshrc && \
+    echo "Finished creating ~/.zshrc symlink"
+    echo "Cloning spaceshipt theme" && \
+    git clone https://github.com/denysdovhan/spaceship-prompt.git "$HOME/.oh-my-zsh/custom/spaceship-prompt" && \
+    echo "Creating ~/.spaceship symlink" && \
+    ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme" && \
+    echo "Finished creating spaceshipt symlink" && \
+    echo "Installing ZInit (ZSH Plugin Manager)" && \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)" && \
+    echo "Finished downloading ZInit"
 
   fi
 
