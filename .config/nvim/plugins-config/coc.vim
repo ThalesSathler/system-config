@@ -6,10 +6,12 @@ let g:coc_global_extensions = [
 \ 'coc-python',
 \ 'coc-yaml',
 \ 'coc-go',
+\ 'coc-phpls',
 \ ]
 
 """ Remap keys for gotos
 nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
+nmap <C-LeftMouse> :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> \gd :vsp<CR><Plug>(coc-definition)

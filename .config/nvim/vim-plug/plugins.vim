@@ -28,6 +28,9 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 """""" Syntax highlighting
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sheerun/vim-polyglot'
+Plug 'StanAngeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
+
 
 """""" Linting and Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -37,6 +40,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 """""" Vim read .editorconfig file
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 
 """""" Allow multiple cursors on vim
 " Plug 'terryma/vim-multiple-cursors'
@@ -46,7 +50,13 @@ Plug 'jiangmiao/auto-pairs'
 
 
 """ testing and debugging
-Plug 'vim-test/vim-test'
+Plug 'vim-test/vim-test' 
+
+""" Track the engine.
+Plug 'SirVer/ultisnips'
+
+""" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
 
 """ Onedark theme
 Plug 'joshdick/onedark.vim'

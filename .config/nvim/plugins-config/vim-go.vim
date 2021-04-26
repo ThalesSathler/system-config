@@ -14,9 +14,9 @@ let g:go_mod_fmt_autosave = 1
 let g:go_def_reuse_buffer = 1
 let g:go_play_browser_command = "brave"
 
-nnoremap gd :GoDef<CR>
-nnoremap <C-LeftMouse> :GoDef<CR>
-nnoremap <C-RightMouse> :GoDefPop 1<CR>
+autocmd FileType go          nnoremap <buffer> gd :GoDef<CR>
+autocmd FileType go          nnoremap <C-LeftMouse> :GoDef<CR>
+autocmd FileType go          nnoremap <C-RightMouse> :GoDefPop 1<CR>
 
 nnoremap gct :GoAlternate!<CR>
 

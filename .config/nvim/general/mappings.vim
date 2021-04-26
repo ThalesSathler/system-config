@@ -22,6 +22,8 @@ nnoremap <silent> <Leader>bp :bp<CR>
 """ Buffer deletion
 nnoremap <silent> <Leader>bd :bd<CR>
 
+nmap <silent> <Leader> <Space> :nohlsearch
+
 " Copy/Paste from/to clipboard
 nmap <Leader>p "+p
 nmap <Leader>P "+P

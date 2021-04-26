@@ -21,6 +21,7 @@ call SourceFileIfExists('vim-plug/plugins.vim')
 
 " Plugins configs
 call SourceFileIfExists('plugins-config/coc.vim')
+call SourceFileIfExists('plugins-config/ultisnips.vim')
 call SourceFileIfExists('plugins-config/vim-ctrlspace.vim')
 call SourceFileIfExists('plugins-config/vim-test.vim')
 call SourceFileIfExists('plugins-config/vim-go.vim')
