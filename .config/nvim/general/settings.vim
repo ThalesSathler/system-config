@@ -23,8 +23,8 @@ set encoding=utf-8
 set incsearch
 set showtabline=0
 set mouse=a
-" set omnifunc=syntaxcomplete#Complete
-" set omnifunc=ale#completion#OmniFunc
+set omnifunc=syntaxcomplete#Complete
+set omnifunc=ale#completion#OmniFunc
 
 set background=dark
 if (has("termguicolors"))

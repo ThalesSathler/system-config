@@ -8,6 +8,21 @@ function! SourceFileIfExists(filename)
   unlet l:extra_file
 endfunc
 
+function! SplitIfNotOpen(call, fname)
+    let bufnum=bufnr(expand(a:fname))
+    let winnum=bufwinnr(bufnum)
+    if winnum != -1
+	" Jump to existing split
+	exe winnum . "wincmd w"
+    else
+	" Make new split as usual
+	exe "vsplit " . a:fname
+    endif
+    " Execute the cursor movement command
+    exe a:call
+endfunction
+
+
 """ Source files
 " General
 call SourceFileIfExists('general/settings.vim')

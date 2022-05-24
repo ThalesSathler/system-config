@@ -9,9 +9,13 @@ let g:coc_global_extensions = [
 \ 'coc-phpls',
 \ ]
 
+
+let g:coc_user_config = {}
+let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen'
+
 """ Remap keys for gotos
-nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<CR>
-nmap <C-LeftMouse> :call CocAction('jumpDefinition', 'tab drop')<CR>
+nmap <silent> gd :call CocAction('jumpDefinition', 'drop')<CR>
+nmap <C-LeftMouse> :call CocAction('jumpDefinition', 'drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> \gd :vsp<CR><Plug>(coc-definition)
